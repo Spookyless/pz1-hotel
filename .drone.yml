@@ -1,17 +1,18 @@
 kind: pipeline
 type: docker
-name: sonar
+name: test
 
 platform:
   arch: arm64
 
 steps:
-  - name: compile
+  - name: run-tests
     image: maven:3.9.5
     commands:
-      - mvn compile
+      - mvn test
   - name: code-analysis
     image: spookyless/sonarqube-scanner
+    failure: ignore
     settings:
       sonar_host:
         from_secret: sonar_host
@@ -22,16 +23,7 @@ steps:
       sonar_name:
         from_secret: sonar_name
       binaries: "./target/classes"
----
-kind: pipeline
-type: docker
-name: tests
-
-platform:
-  arch: arm64
-
-steps:
-  - name: test
-    image: maven:3.9.5
-    commands:
-      - mvn test
+      java_coverage_plugin: "jacoco"
+      surefire_reportsPath: "./target/surefire-reports"
+      java_test: "./target/test-classes"
+      exclusions: "src/test/**/*"
