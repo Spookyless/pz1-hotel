@@ -64,7 +64,7 @@ public class RoomTest {
         }
 
         @Test
-        public void WhenGuestIsNull() throws RoomOccupiedException {
+        public void WhenGuestIsNull() {
             assertThatExceptionOfType(IllegalArgumentException.class)
                 .isThrownBy(() -> room.checkIn(null));
         }
