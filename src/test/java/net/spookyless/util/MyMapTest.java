@@ -8,7 +8,6 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("MyMap tests")
 public class MyMapTest {
     private MyMap<Integer, String> myMap = new MyMap<>();
 
