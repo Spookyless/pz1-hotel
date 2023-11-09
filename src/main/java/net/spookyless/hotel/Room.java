@@ -7,31 +7,17 @@ public class Room {
     /**
      * Room number as {@code String} so we can keep the trailing zeros
      */
-    private final String roomNumber;
-    private final String description;
-    private final float price;
+    public final String roomNumber;
+    public final int roomFloor;
+    public final String description;
+    public final float price;
     private Guest guest = null;
 
     public Room(String roomNumber, String description, float price) {
         this.roomNumber = roomNumber;
+        this.roomFloor = Integer.parseInt(roomNumber.substring(0,1));
         this.description = description;
         this.price = price;
-    }
-
-    public String getRoomNumber() {
-        return roomNumber;
-    }
-
-    public int getFloorNumber() {
-        return Integer.parseInt(roomNumber.substring(0,1));
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public float getPrice() {
-        return price;
     }
 
     public Guest getGuest() {
@@ -48,7 +34,7 @@ public class Room {
         }
 
         if(isOccupied()) {
-            throw new RoomOccupiedException("Room " + roomNumber + " is occupied");
+            throw new RoomOccupiedException(roomNumber);
         }
 
         this.guest = guest;
@@ -56,7 +42,7 @@ public class Room {
 
     public void checkOut() throws RoomEmptyException {
         if(!isOccupied()) {
-            throw new RoomEmptyException("Room " + roomNumber + " is empty");
+            throw new RoomEmptyException(roomNumber);
         }
 
         this.guest = null;

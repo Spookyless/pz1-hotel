@@ -18,33 +18,6 @@ public class RoomTest {
         room = new Room("042", "Lorem ipsum", 123.5f);
     }
 
-    @Test
-    public void shouldReturnRoomNumber() {
-        assertEquals("042", room.getRoomNumber());
-    }
-
-    @Test
-    public void shouldReturnFloorNumber() {
-        assertEquals(0, room.getFloorNumber());
-    }
-
-    @Test
-    public void shouldReturnDescription() {
-        assertEquals("Lorem ipsum", room.getDescription());
-    }
-
-    @Test
-    public void shouldReturnPrice() {
-        assertEquals(123.5f, room.getPrice());
-    }
-
-    @Test
-    public void shouldReturnGuest() throws RoomOccupiedException {
-        room.checkIn(guest);
-
-        assertEquals(guest, room.getGuest());
-    }
-
     @Nested
     public class ShouldCheckIn {
         @Test

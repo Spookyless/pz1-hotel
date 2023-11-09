@@ -14,7 +14,7 @@ public class Hotel {
 
     public Hotel(List<Room> rooms) {
         for (Room room: rooms) {
-            this.rooms.put(room.getRoomNumber(), room);
+            this.rooms.put(room.roomNumber, room);
         }
     }
 
@@ -24,7 +24,7 @@ public class Hotel {
 
     public Room getRoomDetails(String roomNumber) throws RoomNotFoundException {
         if(!rooms.contains(roomNumber)) {
-            throw new RoomNotFoundException("Room " + roomNumber + " does not exist");
+            throw new RoomNotFoundException(roomNumber);
         }
 
         return rooms.get(roomNumber);

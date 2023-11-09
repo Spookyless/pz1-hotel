@@ -1,7 +1,7 @@
 package net.spookyless.hotel.exceptions;
 
 public class RoomNotFoundException extends HotelException {
-    public RoomNotFoundException(String message) {
-        super(message);
+    public RoomNotFoundException(String roomNumber) {
+        super("Room " + roomNumber + " does not exist");
     }
 }
