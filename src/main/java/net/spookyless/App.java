@@ -1,9 +1,6 @@
 package net.spookyless;
 
-import net.spookyless.commands.Command;
-import net.spookyless.commands.CommandRunner;
-import net.spookyless.commands.ExitCommand;
-import net.spookyless.commands.ListCommand;
+import net.spookyless.commands.*;
 import net.spookyless.hotel.Hotel;
 import net.spookyless.hotel.Room;
 
@@ -26,6 +23,9 @@ public class App {
 
         List<Command<Hotel>> commands = Arrays.asList(
             new ListCommand("list", "lists all rooms in a hotel"),
+            new ViewCommand("view", "prints room details"),
+            new CheckInCommand("checkin", "checks in the guest"),
+            new CheckOutCommand("checkout", "checks out the guest"),
             new ExitCommand("exit", "exits the program")
         );
 

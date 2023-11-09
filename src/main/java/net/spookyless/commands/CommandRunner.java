@@ -27,7 +27,7 @@ public class CommandRunner<T> {
         while (true) {
             pr.print("$ ");
 
-            String line = scanner.nextLine();
+            String line = scanner.nextLine().trim();
 
             if(line.isEmpty()) {
                 continue;
