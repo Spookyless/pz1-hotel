@@ -7,8 +7,8 @@ import java.io.PrintStream;
 import java.util.List;
 
 public class ListCommand extends Command<Hotel> {
-    public ListCommand(String name, String description) {
-        super(name, description);
+    public ListCommand() {
+        super("list", "lists all rooms in a hotel");
     }
 
     @Override

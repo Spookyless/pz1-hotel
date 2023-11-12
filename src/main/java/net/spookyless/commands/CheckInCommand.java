@@ -8,8 +8,8 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class CheckInCommand extends Command<Hotel> {
-    public CheckInCommand(String name, String description) {
-        super(name, description);
+    public CheckInCommand() {
+        super("checkin", "checks in the guest");
     }
 
     @Override

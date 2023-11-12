@@ -27,12 +27,12 @@ public class App {
 
     private static CommandRunner<Hotel> getHotelCommandRunner(Persist<Hotel> persist) {
         List<Command<Hotel>> commands = Arrays.asList(
-                new ListCommand("list", "lists all rooms in a hotel"),
-                new ViewCommand("view", "prints room details"),
-                new CheckInCommand("checkin", "checks in the guest"),
-                new CheckOutCommand("checkout", "checks out the guest"),
-                new SaveCommand("save", "saves current hotel configuration to file", persist),
-                new ExitCommand("exit", "exits the program")
+                new ListCommand(),
+                new ViewCommand(),
+                new CheckInCommand(),
+                new CheckOutCommand(),
+                new SaveCommand(persist),
+                new ExitCommand()
         );
 
         return new CommandRunner<>(System.in, System.out, commands);

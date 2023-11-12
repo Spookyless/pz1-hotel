@@ -9,8 +9,8 @@ import java.io.PrintStream;
 public class SaveCommand extends Command<Hotel> {
     private final Persist<Hotel> persist;
 
-    public SaveCommand(String name, String description, Persist<Hotel> persist) {
-        super(name, description);
+    public SaveCommand(Persist<Hotel> persist) {
+        super("save", "saves current hotel configuration to file");
 
         this.persist = persist;
     }

@@ -9,8 +9,8 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class ViewCommand extends Command<Hotel> {
-    public ViewCommand(String name, String description) {
-        super(name, description);
+    public ViewCommand() {
+        super("view", "prints room details");
     }
 
     @Override
@@ -24,7 +24,7 @@ public class ViewCommand extends Command<Hotel> {
 
         pr.println("Room number: " + room.roomNumber);
         pr.println("Room floor: " + room.roomFloor);
-        pr.print("Description:\n" + room.description.indent(2));
+        pr.println("Description: " + room.description);
         pr.println("Price: " + String.format("%.2f", room.price) + " PLN per night");
 
         Guest guest = room.getGuest();
