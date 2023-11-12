@@ -71,6 +71,20 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>javadoc</goal>
+            </goals>
+            <id>generate-javadoc</id>
+            <phase>site</phase>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
