@@ -22,9 +22,11 @@ public class CommandRunner<T> {
     }
 
     public void run(T params) {
+        int i = 0;
+
         pr.println("Enter a command or use '?' for help");
 
-        while (true) {
+        while (++i < Integer.MAX_VALUE) {
             pr.print("$ ");
 
             String line = scanner.nextLine().trim();
@@ -48,7 +50,7 @@ public class CommandRunner<T> {
             try {
                 command.execute(in, pr, params);
             } catch (StopIterationException e) {
-                return;
+                break;
             } catch (Exception e) {
                 pr.println("[Error] " + e.getMessage());
             }
